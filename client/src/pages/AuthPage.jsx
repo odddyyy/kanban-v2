@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import logo from '../assets/img/logo.jpg'
+
 //components
 import Login from '../components/Login'
 import Register from '../components/Register'
@@ -7,15 +9,15 @@ import Register from '../components/Register'
 export default function AuthPage() {
     const [change, setChange] = useState(0)
     return (
-        <div className="container mt-5">
-            <div className="row">
-                <div className="col-xs-12 col-sm-12 col-md-6 mt-3">
+        <div className="container">
+            <div className="row justify-content-center align-items-center" style={{height:'100vh'}}>
+                <div className="col-sm-12 col-md-6">
                     <img 
-                        src='https://cdn2.f-cdn.com/contestentries/1233379/24944931/5a61943e42134_thumb900.jpg' 
+                        src={logo}
                         style={styles.image}
                     />
                 </div>
-                <div className="col-xs-12 col-sm-12 col-md-6">
+                <div className="col-sm-12 col-md-6">
                     {change === 0 ?
                     <>
                         <Login />
@@ -39,7 +41,7 @@ const styles = {
         textDecoration: 'underline'
     },
     image: {
-        width:'580px', 
-        height: '500px'
+        width:'80%', 
+        height: '234px'
     }
 }

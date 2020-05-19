@@ -1,5 +1,11 @@
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.form-container {
+    width: 100vw;
+}
+
+.main-text {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 15px rgb(216, 143, 6);
+    color: black;
+    text-align: center;
 }
