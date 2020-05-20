@@ -1,9 +1,20 @@
 import React from 'react'
 import { Navbar, NavDropdown, Nav } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import logo from '../assets/img/navlogo.png'
+import { logout } from '../store/actions/user-action'
+import { useHistory } from 'react-router-dom'
 
 export default function NavigationBar() {
+    
+    const dispatch = useDispatch()
+    const history = useHistory()
+
+    //functions
+    const handleLogout = () => {
+        dispatch(logout())
+        history.push('/')
+    }
 
     return (
         <Navbar bg="warning" expand="lg">
@@ -15,12 +26,9 @@ export default function NavigationBar() {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto" style={{marginRight:'100px'}}>
-                <NavDropdown title={<i class="fas fa-user fa-lg text-dark"></i>} id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">View profile</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item className="text-danger"><i class="fas fa-sign-out-alt mr-1"></i>Logout</NavDropdown.Item>
-                </NavDropdown>
+                <Nav className="ml-auto">
+                    <Nav.Link><i class="fas fa-user-circle mr-1"></i>Profile</Nav.Link>
+                    <Nav.Link onClick={() => handleLogout()}><i class="fas fa-sign-out-alt mr-1"></i>Logout</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

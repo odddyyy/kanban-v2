@@ -5,7 +5,13 @@
 .main-text {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     letter-spacing: 3px;
-    text-shadow: 1px 1px 15px rgb(216, 143, 6);
+    text-shadow: 3px 3px 15px rgb(216, 143, 6);
     color: black;
+    background-color:#c5c9c6;
     text-align: center;
+}
+
+.board-page {
+    background-color: #c5c9c6;
+    min-height: 100vh;
 }

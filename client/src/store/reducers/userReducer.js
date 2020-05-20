@@ -16,6 +16,10 @@ const userReducer = (state = initState, action) => {
         case 'AUTHENTICATE_FAIL':
             return {...state, error: action.payload}
 
+        case 'LOGOUT':
+            localStorage.removeItem('token')
+            return {...state, token: null, user: {}, isAuthenticated: false, error: null }
+
         default:
             return state
     }

@@ -15,3 +15,11 @@ export const register = (data) => {
         })
     }
 }
+
+export const logout = () => {
+    return async dispatch => {
+        dispatch({
+            type: 'LOGOUT'
+        })
+    }
+}
