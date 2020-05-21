@@ -19,6 +19,7 @@ export const getTasks = () => async dispatch => {
 
 export const postTask = (title, description) => async dispatch => {
     try {
+        console.log('MASUK ACTION')
         const { data } = await axios({
             method: 'POST',
             url: `${SERVER_URL}/task`,

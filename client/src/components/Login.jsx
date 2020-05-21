@@ -40,15 +40,15 @@ export default function Login() {
     return (
         <form onSubmit={handleLogin}>
             {error && <span className="alert-danger">{error}</span>}
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} required/>
+            <div className="form-group">
+                <label>Email address</label>
+                <input type="email" className="form-control" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} required/>
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required/>
+            <div className="form-group">
+                <label>Password</label>
+                <input type="password" className="form-control" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required/>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button type="submit" className="btn btn-primary btn-block">Login</button>
         </form>
     )
 }

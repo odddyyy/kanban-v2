@@ -32,8 +32,8 @@ export default function NavigationBar() {
                 </Nav>
                 <Nav className="ml-auto">
                     <Nav.Link className="text-light mr-5 links"><AddTaskModal /></Nav.Link>
-                    <Nav.Link className="text-light mr-5 links"><i class="fas fa-user-circle mr-1"></i>Profile</Nav.Link>
-                    <Nav.Link className="text-white links" onClick={() => handleLogout()}><i class="fas fa-sign-out-alt mr-1"></i>Logout</Nav.Link>
+                    <Nav.Link className="text-light mr-5 links"><i className="fas fa-user-circle mr-1"></i>Profile</Nav.Link>
+                    <Nav.Link className="text-light links" onClick={() => handleLogout()}><i className="fas fa-sign-out-alt mr-1"></i>Logout</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

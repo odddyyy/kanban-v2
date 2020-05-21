@@ -32,7 +32,7 @@ class TaskController {
 
     static async deleteTask (req, res, next) {
         try {
-            await Task.remove({ _id: req.params.id })
+            await Task.deleteOne({ _id: req.params.id })
             res.status(200).json({ success: true, msg: 'Task deleted' })
         } catch (err) {
             next(err)

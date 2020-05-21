@@ -7,7 +7,7 @@ import { Card } from 'react-bootstrap'
 import CardDetail from './CardDetail'
 
 //actions
-import { deleteTask, changeStatus, getTasks } from '../store/actions/task-action'
+import { deleteTask, changeStatus } from '../store/actions/task-action'
 
 export default function Cards({ task }) {
 

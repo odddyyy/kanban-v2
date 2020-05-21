@@ -17,8 +17,7 @@ export default function AddTaskModal() {
     const handleShow = () => setShow(true);
 
     //handling adding new task
-    const addTask = e => {
-        e.preventDefault()
+    const addTask = () => {
         dispatch(postTask(title, description))
         handleClose()
         setTitle('')
@@ -27,23 +26,23 @@ export default function AddTaskModal() {
 
     return (
         <>
-            <span className="text-light" style={{cursor:'pointer'}} onClick={handleShow}><i class="fas fa-plus-circle mr-1"></i>Task</span>
+            <span className="text-light" style={{cursor:'pointer'}} onClick={handleShow}><i className="fas fa-plus-circle mr-1"></i>Task</span>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                <Modal.Title>New task</Modal.Title>
+                <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 <Form onSubmit={addTask}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Title</Form.Label>
-                        <Form.Control type="text" value={title} onChange={e => setTitle(e.target.value)}/>
+                        <Form.Control type="email" onChange={e => setTitle(e.target.value)}/>
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control as="textarea" rows="3" value={description} onChange={e => setDescription(e.target.value)}/>
+                        <Form.Control as="textarea" onChange={e => setDescription(e.target.value)}/>
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" onClick={() => addTask()}>
                         Add
                     </Button>
                 </Form>
