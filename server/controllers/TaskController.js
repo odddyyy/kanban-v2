@@ -57,9 +57,21 @@ class TaskController {
     }
 
     static async updateStatus (req, res, next) {
-        const { status } = req.body
+        const { status, move } = req.body
+        let newStatus
+
+        if (move === 'next') {
+            if (status === 'incomplete') newStatus = 'onprocess'
+            else if (status === 'onprocess') newStatus = 'onreview'
+            else newStatus = 'completed'
+        } else if (move === 'prev') {
+            if (status === 'completed') newStatus = 'onreview'
+            else if (status === 'onreview') newStatus = 'onprocess'
+            else newStatus = 'incomplete'
+        }
+
         try {
-            await Task.updateOne({ _id: req.params.id }, { $set: { status } })
+            await Task.updateOne({ _id: req.params.id }, { $set: { status: newStatus } })
             res.status(200).json({ success: true, msg: 'Status updated' })
         } catch (err) {
             next(err)

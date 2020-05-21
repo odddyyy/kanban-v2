@@ -20,6 +20,9 @@ const taskReducer = (state = initState, action) => {
             })
             return {...state, tasks: newTask}
 
+        // case 'UPDATE_TASK_STATUS':
+        //     return state
+
         default:
             return state
     }

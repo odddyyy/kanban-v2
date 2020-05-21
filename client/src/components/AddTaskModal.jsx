@@ -27,7 +27,7 @@ export default function AddTaskModal() {
 
     return (
         <>
-            <button className="btn btn-primary mb-4" onClick={handleShow}><i class="fas fa-plus-circle mr-2"></i>Task</button>
+            <span className="text-light" style={{cursor:'pointer'}} onClick={handleShow}><i class="fas fa-plus-circle mr-1"></i>Task</span>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -41,7 +41,7 @@ export default function AddTaskModal() {
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="text" value={description} onChange={e => setDescription(e.target.value)}/>
+                        <Form.Control as="textarea" rows="3" value={description} onChange={e => setDescription(e.target.value)}/>
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Add

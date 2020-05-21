@@ -1,9 +1,13 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap'
-import CardDetail from './CardDetail'
-import { deleteTask } from '../store/actions/task-action'
 import { useDispatch } from 'react-redux'
 import Swal from 'sweetalert2'
+
+//components
+import { Card } from 'react-bootstrap'
+import CardDetail from './CardDetail'
+
+//actions
+import { deleteTask, changeStatus, getTasks } from '../store/actions/task-action'
 
 export default function Cards({ task }) {
 
@@ -30,14 +34,30 @@ export default function Cards({ task }) {
         }
     }
 
+    const handleChangeStatus = (id, status, move) => {
+        dispatch(changeStatus(id, status, move))
+    }
+
     return (
         <Card style={styles.cardStyle} className="mb-3 bg-light mx-auto">
         <Card.Body>
             <Card.Title className="text-center">{task.title}</Card.Title>
             <CardDetail task={task}/>
             <div className="text-center mt-2">
+                {task.status === 'onprocess' || task.status === 'onreview' || task.status === 'completed' ? 
+                    <span style={styles.icon} onClick={() => handleChangeStatus(task._id, task.status, 'prev')}><i class="fas fa-arrow-circle-left mr-4 text-warning"></i></span>
+                    : 
+                    null
+                }
+                
                 <i className="fas fa-edit mr-2"></i>
                 <span style={styles.icon} onClick={() => handleDelete(task._id)}><i className="fas fa-trash-alt text-danger"></i></span>
+                {task.status === 'onprocess' || task.status === 'onreview' || task.status === 'incomplete' ? 
+                    <span style={styles.icon} onClick={() => handleChangeStatus(task._id, task.status, 'next')}><i class="fas fa-arrow-circle-right ml-4 text-success"></i></span>
+                    : 
+                    null
+                }
+                
             </div>
         </Card.Body>
         </Card>

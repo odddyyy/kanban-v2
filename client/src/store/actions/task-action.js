@@ -45,3 +45,17 @@ export const deleteTask = (id) => async dispatch => {
         payload: id
     })
 }
+
+export const changeStatus = (id, status, move) => async dispatch => {
+    await axios({
+        method: 'PUT',
+        url: `${SERVER_URL}/task/status/${id}`,
+        data: { status, move },
+        headers: { token: localStorage.token }
+    })
+
+    dispatch({
+        type: 'UPDATE_TASK_STATUS',
+        payload: { id, status, move }
+    })
+}

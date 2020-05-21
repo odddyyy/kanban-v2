@@ -24,10 +24,15 @@ export default function Login() {
                 url: `${SERVER_URL}/user/login`,
                 data: { email, password }
             })
+            console.log(data)
             dispatch(login(data))
             history.push('/board')
         } catch (err) {
+            console.log(err)
             setError(err.response.data)
+            setTimeout(() => {
+                setError(null)
+            }, 3000)
         }
         setEmail('')
         setPassword('')
